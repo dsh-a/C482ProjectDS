@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="620.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddProduct">
+   <children>
+      <Label text="Add Product" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="Segoe UI Semibold" size="18.0" />
+         </font>
+      </Label>
+      <GridPane prefHeight="263.0" prefWidth="280.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="75.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="ID" />
+            <TextField fx:id="addProductId" disable="true" editable="false" GridPane.columnIndex="1" />
+            <Label text="Name" GridPane.rowIndex="1" />
+            <TextField fx:id="addProductName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <Label text="Inv" GridPane.rowIndex="2" />
+            <TextField fx:id="addProductInventory" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Price" GridPane.rowIndex="3" />
+            <TextField fx:id="addProductPrice" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Max" GridPane.rowIndex="4" />
+            <TextField fx:id="addProductMax" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Min" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="addProductMin" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <Button mnemonicParsing="false" onAction="#addPartsAddProduct" prefHeight="20.0" prefWidth="50.0" text="Add" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="277.5">
+         <font>
+            <Font name="Segoe UI Light" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="addProductSearch" onKeyTyped="#searchPartsAddProduct" prefWidth="175.0" promptText="Search by Part ID or Name" AnchorPane.leftAnchor="625.0" AnchorPane.topAnchor="20.0" />
+      <TableView fx:id="addProductAddPartTableView" prefHeight="200.0" prefWidth="400.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="60.0">
+        <columns>
+          <TableColumn fx:id="addProductAddPartIdCol" prefWidth="75.0" text="Part ID" />
+          <TableColumn fx:id="addProductAddPartNameCol" prefWidth="100.0" text="Part Name" />
+            <TableColumn fx:id="addProductAddPartInventoryCol" prefWidth="100.0" text="Inventory Level" />
+            <TableColumn fx:id="addProductAddPartPriceCol" prefWidth="125.0" text="Price/Cost Per Unit" />
+        </columns>
+      </TableView>
+      <Button mnemonicParsing="false" onAction="#cancel" prefHeight="20.0" prefWidth="50.0" text="Cancel" AnchorPane.leftAnchor="750.0" AnchorPane.topAnchor="575.0">
+         <font>
+            <Font name="Segoe UI Light" size="12.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#saveAddProduct" prefHeight="20.0" prefWidth="50.0" text="Save" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="575.0">
+         <font>
+            <Font name="Segoe UI Light" size="12.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#deletePartAddProduct" prefHeight="20.0" prefWidth="150.0" text="Remove Associated Part" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="545.0">
+         <font>
+            <Font name="Segoe UI Light" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="addProductDeletePartTableView" prefHeight="200.0" prefWidth="400.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="320.0">
+         <columns>
+            <TableColumn fx:id="addProductDeletePartIdCol" prefWidth="75.0" text="Part ID" />
+            <TableColumn fx:id="addProductDeletePartNameCol" prefWidth="100.0" text="Part Name" />
+            <TableColumn fx:id="addProductDeletePartInventoryCol" prefWidth="100.0" text="Inventory Level" />
+            <TableColumn fx:id="addProductDeletePartPriceCol" prefWidth="125.0" text="Price/Cost Per Unit" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

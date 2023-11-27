@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindow">
+   <children>
+      <Label layoutX="83.0" layoutY="26.0" text="Inventory Management System" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="Segoe UI Semibold" size="36.0" />
+         </font>
+      </Label>
+      <AnchorPane minHeight="350.0" minWidth="500.0" style="-fx-border-color: black; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="125.0">
+         <children>
+            <Label text="Parts" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="Segoe UI" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mainPartSearchInput" onKeyTyped="#searchPart" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
+            <Button mnemonicParsing="false" onAction="#addPart" text="Add" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="290.0" />
+            <TableView fx:id="mainPartTableView" minHeight="215.0" minWidth="450.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0">
+              <columns>
+                  <TableColumn fx:id="mainPartIdCol" prefWidth="75.0" text="Part ID" />
+                  <TableColumn fx:id="mainPartNameCol" prefWidth="153.0" text="Part Name" />
+                  <TableColumn fx:id="mainPartInventoryCol" prefWidth="97.0" text="Inventory Level" />
+                  <TableColumn fx:id="mainPartPriceCol" prefWidth="124.0" text="Price/Cost Per Unit" />
+              </columns>
+            </TableView>
+            <Button layoutX="187.0" layoutY="312.0" mnemonicParsing="false" onAction="#modifyPart" text="Modify" AnchorPane.leftAnchor="214.5" AnchorPane.topAnchor="290.0" />
+            <Button layoutX="237.0" layoutY="312.0" mnemonicParsing="false" onAction="#deletePart" text="Delete" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="290.0" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="60.0" layoutY="135.0" minHeight="350.0" minWidth="500.0" style="-fx-border-color: black; -fx-border-width: 2;" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="125.0">
+         <children>
+            <Label text="Products" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="Segoe UI" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mainProductSearchInput" onKeyTyped="#searchProduct" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
+            <Button mnemonicParsing="false" onAction="#addProduct" text="Add" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="290.0" />
+            <TableView fx:id="mainProductTableView" minHeight="215.0" minWidth="450.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0">
+               <columns>
+                  <TableColumn fx:id="mainProductIdCol" prefWidth="75.0" text="Product ID" />
+                  <TableColumn fx:id="mainProductCol" prefWidth="153.0" text="Product Name" />
+                  <TableColumn fx:id="mainProductInventoryCol" prefWidth="97.0" text="Inventory Level" />
+                  <TableColumn fx:id="mainProductPriceCol" prefWidth="124.0" text="Price Per Unit" />
+               </columns>
+            </TableView>
+            <Button layoutX="187.0" layoutY="312.0" mnemonicParsing="false" onAction="#modifyProduct" text="Modify" AnchorPane.leftAnchor="214.5" AnchorPane.topAnchor="290.0" />
+            <Button layoutX="237.0" layoutY="312.0" mnemonicParsing="false" onAction="#deleteProduct" text="Delete" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="290.0" />
+         </children>
+      </AnchorPane>
+      <Button mnemonicParsing="false" onAction="#exitApp" text="Exit" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font name="Segoe UI" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
