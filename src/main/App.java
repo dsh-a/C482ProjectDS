@@ -35,7 +35,7 @@ import javafx.stage.Stage;
  * function for the method.</p>
  */
 
-public class Main extends Application {
+public class App extends Application {
 
     /** APP TITLE
      * Added a variable in case title changes for maintainability.

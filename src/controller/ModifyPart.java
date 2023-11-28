@@ -105,10 +105,11 @@ public class ModifyPart implements Initializable {
     void cancelModPart(ActionEvent event) throws IOException {
         Optional<ButtonType> result = showAlert(Alert.AlertType.CONFIRMATION,
                 "Cancel Modifying Part", "Do you want to cancel modifying the part?");
-        Button sourceButton = (Button) event.getSource();
-        Stage stage = (Stage) sourceButton.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MainWindow.fxml"))));
-        stage.show();
+        if (result.orElse(null) == ButtonType.OK) {
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MainWindow.fxml"))));
+            stage.show();
+        }
     }
 
     /** SET PARAMS FOR INHOUSE PARTS

@@ -128,6 +128,7 @@ public class ModifyProduct implements Initializable {
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             stage.show();
             modProduct.deleteAssociatedParts(selectedPart);
+            // Refresh the table
             modProduct.setAssociatedParts(modProduct.getAssociatedParts());
         }
     }
@@ -179,10 +180,11 @@ public class ModifyProduct implements Initializable {
     void cancelModProduct(ActionEvent event) throws IOException {
         Optional<ButtonType> result = showAlert(Alert.AlertType.CONFIRMATION,
                 "Cancel Modifying Product","This will clear all changes, do you want to continue?");
-        Button sourceButton = (Button) event.getSource();
-        Stage stage = (Stage) sourceButton.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MainWindow.fxml"))));
-        stage.show();
+        if (result.orElse(null) == ButtonType.OK) {
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MainWindow.fxml"))));
+            stage.show();
+        }
     }
 
     /** SEND SELECTED PRODUCT TO MODIFY PRODUCT WINDOW

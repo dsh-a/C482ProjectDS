@@ -1,10 +1,9 @@
 package model;
 
-// REVISION 1 CHECK
+// REVISION 2 CHECK
 
 /** INHOUSE CLASS
  * Model for InHouse objects, an extension of the Part object
- * Built class InHouse.java
  * @author Dalton Shultz
  */
 
@@ -26,17 +25,18 @@ public class InHouse extends Part {
      */
     public InHouse(int id, String name, double price, int stock, int min, int max, int machineId) {
         super(id, name, price, stock, min, max);
-        this.machineId = machineId;
+        setMachineId(machineId);
     }
 
-    /** GET MACHINEID
+    /** GET MACHINE ID
      * Getter for machineId
+     * @return machineId
      */
     public int getMachineId() {
         return machineId;
     }
 
-    /** SET MACHINEID
+    /** SET MACHINE ID
      * Setter for machineId
      * @param machineId the unique identifier of the machine where the Part was made.
      */

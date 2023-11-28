@@ -1,10 +1,9 @@
 package model;
 
-// REVISION 1 CHECK
+// REVISION 2 CHECK
 
 /** OUTSOURCED CLASS
  * Model for Outsourced objects, an extension of the Part object.
- * Built class Outsourced.java
  * @author Dalton Shultz
  */
 
@@ -26,17 +25,18 @@ public class Outsourced extends Part {
      */
     public Outsourced(int id, String name, double price, int stock, int min, int max, String companyName) {
         super(id, name, price, stock, min, max);
-        this.companyName = companyName;
+        setCompanyName(companyName);
     }
 
-    /** GET COMPANYNAME
+    /** GET COMPANY NAME
      * Getter for companyName
+     * @return companyName
      */
     public String getCompanyName() {
         return companyName;
     }
 
-    /** SET COMPANYNAME
+    /** SET COMPANY NAME
      * Setter for companyName
      * @param companyName the identifier for the company who produced the Part
      */

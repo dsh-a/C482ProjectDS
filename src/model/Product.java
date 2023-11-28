@@ -1,12 +1,12 @@
 package model;
-import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 // REVISION 2 CHECK
 
 /** PRODUCT CLASS
  * The model for a Product object which includes several methods and attributes
- * including several to manage parts associated with the Product, associatedParts methods.
+ * to manage parts associated with the Product, associatedParts methods.
  * @author Dalton Shultz
  */
 
@@ -36,9 +36,9 @@ public class Product {
      */
     private int max;
     /**
-     * A list of Parts associated with the Product.
+     * Parts associated with the Product.
      */
-    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
+    private ObservableList<Part> associatedParts;
 
     /** PRODUCT CONSTRUCTOR
      * The constructor for a Product instance.
@@ -48,17 +48,19 @@ public class Product {
      * @param stock the stock/inventory of the Product.
      * @param min the minimum stock/inventory for the Product.
      * @param max the maximum stock/inventory for the Product.
-     * @param associatedParts a list of Parts associated with the Product.
+     * @param associatedParts a list of Parts associated with producing the Product.
      */
+
     public Product(int id, String name, double price, int stock, int min, int max, ObservableList<Part> associatedParts) {
+        // Use conditional to prevent NullPointerException by initializing with FXC if null.
+        this.associatedParts = (associatedParts != null) ? associatedParts : FXCollections.observableArrayList();
+        // Set other params
         this.id = id;
         this.name = name;
         this.price = price;
         this.stock = stock;
         this.min = min;
         this.max = max;
-        // Prevent NullPointerException by initializing with FXC if null
-        this.associatedParts = (associatedParts != null) ? associatedParts : FXCollections.observableArrayList();
     }
 
     /** GET ID
@@ -158,7 +160,7 @@ public class Product {
     }
 
     // AssociatedParts (list) methods
-    /** GET ASSOCIATEDPARTS
+    /** GET ASSOCIATED PARTS
      * Getter for associatedParts
      * @return List of Parts associated with the Product.
      */
@@ -174,19 +176,25 @@ public class Product {
         this.associatedParts = associatedParts;
     }
 
-    /** ADD ASSOCIATED PARTS
+    /** ADD ASSOCIATED PART
      * Adds a Part to the List of Parts (AssociatedParts) associated with the Product.
-     * @param part identifies which Part to add to AssociatedParts.
+     * @param selectedPart identifies which Part to add to AssociatedParts.
      */
-    public void addAssociatedPart(Part part) {
-        this.associatedParts.add(part);
+    public void addAssociatedPart(Part selectedPart) {
+        this.associatedParts.add(selectedPart);
     }
 
     /** DELETE ASSOCIATED PART
      * Deletes a Part from the List of Parts (AssociatedParts) associated with the Product.
-     * @param selectedAssociatedPart identifies which Part to delete from AssociatedParts.
+     * @param selectedPart identifies which Part to delete from AssociatedParts.
+     * @return boolean
      */
-    public void deleteAssociatedParts(Part selectedAssociatedPart) {
-        this.associatedParts.remove(selectedAssociatedPart);
+    public boolean deleteAssociatedParts(Part selectedPart) {
+        if (associatedParts.contains(selectedPart)) {
+            associatedParts.remove(selectedPart);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
